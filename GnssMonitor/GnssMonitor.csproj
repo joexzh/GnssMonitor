@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9608A129-1323-497B-AA96-41B11CEAF501}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GnssMonitor</RootNamespace>
+    <AssemblyName>GnssMonitor</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BaseGPSData">
+      <HintPath>bin\Release\DLL\BaseGPSData.dll</HintPath>
+    </Reference>
+    <Reference Include="CoordLib">
+      <HintPath>bin\Release\DLL\CoordLib.dll</HintPath>
+    </Reference>
+    <Reference Include="CoordSetCE">
+      <HintPath>bin\Release\DLL\CoordSetCE.dll</HintPath>
+    </Reference>
+    <Reference Include="Encryption">
+      <HintPath>bin\Release\DLL\Encryption.dll</HintPath>
+    </Reference>
+    <Reference Include="GPSBasics">
+      <HintPath>bin\Release\DLL\GPSBasics.dll</HintPath>
+    </Reference>
+    <Reference Include="MointorProcessing">
+      <HintPath>bin\Release\DLL\MointorProcessing.dll</HintPath>
+    </Reference>
+    <Reference Include="mysql.data">
+      <HintPath>bin\Release\DLL\mysql.data.dll</HintPath>
+    </Reference>
+    <Reference Include="mysql.data.entity">
+      <HintPath>bin\Release\DLL\mysql.data.entity.dll</HintPath>
+    </Reference>
+    <Reference Include="mysql.web">
+      <HintPath>bin\Release\DLL\mysql.web.dll</HintPath>
+    </Reference>
+    <Reference Include="PostProcess">
+      <HintPath>bin\Release\DLL\PostProcess.dll</HintPath>
+    </Reference>
+    <Reference Include="SideBar">
+      <HintPath>bin\Release\DLL\SideBar.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph">
+      <HintPath>bin\Release\DLL\ZedGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="ZHD.SYS.CommonUtility.CommunicationLib">
+      <HintPath>bin\Release\DLL\ZHD.SYS.CommonUtility.CommunicationLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ZHD.SYS.CommonUtility.DatabaseLib">
+      <HintPath>bin\Release\DLL\ZHD.SYS.CommonUtility.DatabaseLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\BaseLineInfo.cs" />
+    <Compile Include="Common\CoordinateOperation.cs" />
+    <Compile Include="Common\DatabaseManager2.cs" />
+    <Compile Include="Common\DeviceInfo.cs" />
+    <Compile Include="Common\EnumCommon.cs" />
+    <Compile Include="Common\GnssDBOperate.cs" />
+    <Compile Include="Common\GPSStationInfo.cs" />
+    <Compile Include="Common\OptionSetting.cs" />
+    <Compile Include="Common\SetFileRW.cs" />
+    <Compile Include="GPSDecoder.cs" />
+    <Compile Include="GnssManager.cs" />
+    <Compile Include="GnssMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GnssMonitor.Designer.cs">
+      <DependentUpon>GnssMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LocalCommunication.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GnssMonitor.resx">
+      <DependentUpon>GnssMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
